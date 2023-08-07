@@ -18,30 +18,44 @@ def show_verb(request, part_of_speech):
     return render(request, 'main/show_verb.html', {'page_users': page_users})
 
 
-def show_verb2(request, part_of_speech):
-    users = verbs.objects.filter(part_of_speech=part_of_speech)[:15]
+# def show_verb2(request, part_of_speech):
+#     users = verbs.objects.filter(part_of_speech=part_of_speech)[:15]
     
+#     paginator = Paginator(users, 1)  # Each page will contain one item
+#     page_number = request.GET.get('page')
+#     page_users = paginator.get_page(page_number)
+
+#     return render(request, 'main/show_verb2.html', {'page_users': page_users})
+
+
+def show_verb2(request, part_of_speech):
+    users = verbs.objects.filter(part_of_speech=part_of_speech)[:15]  # Use your Verb model
     paginator = Paginator(users, 1)  # Each page will contain one item
     page_number = request.GET.get('page')
     page_users = paginator.get_page(page_number)
 
-    return render(request, 'main/show_verb2.html', {'page_users': page_users})
+    feedback = None  # Initialize feedback to None
 
+    if request.method == "POST":
+        user_input = request.POST.get("user_input")
+        correct_answer = page_users.object_list[0].niqqud_stripped_word
 
+        if user_input == correct_answer:
+            feedback = "Correct!"
+            # print(correct_answer)
+        
+        else:
+            feedback = "Incorrect. Try again."
+            # print(("BAD!") + (correct_answer))
 
+    context = {
+        'page_users': page_users,
+        'feedback': feedback,  # Pass the feedback to the template
+    }
 
-# def show_next_user(request, specific_name, user_id):
-#     users = User.objects.filter(username=specific_name)
-#     user = get_object_or_404(users, id=user_id)
-#     next_user = users.filter(id__gt=user.id).first()
-#     return render(request, 'show_user.html', {'user': user, 'next_user': next_user, 'specific_name': specific_name})
+    return render(request, 'main/show_verb2.html', context)
 
-
-# def show_next_user(request, specific_name):
-#     user_ids = request.session.get('specific_name_users', [])
-#     index = request.session.get('specific_name_index', 0)
-
-  
+ 
 
 def home(response):
 	return render(response, "main/home.html", {})
