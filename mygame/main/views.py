@@ -46,6 +46,9 @@ def show_verb2(request, part_of_speech):
 def home(response):
 	return render(response, "main/home.html", {})
 
+def account(response):
+	return render(response, "main/account.html", {})
+
 def round1(response):
 	return render(response, "main/round1.html", {})
 

@@ -21,14 +21,11 @@
 			display:block;
 		}
  
-		
-
-       
 		.content {
 			margin-left: 220px; /* Adjust as needed */
 			padding: 20px; /* Add padding to create separation from sidebar */
             color:#2E5374;
-            font-size: 20px;
+            font-size: 24px;
 		}
         
 	</style>
@@ -38,8 +35,12 @@
 <body>
 	<div class="sidenav">
 		<a href="/">Home</a>
+        <a href="{% url 'account' %}">Account</a>
+        <br>
+        <br>
         <a href="{% url 'round1' %}">Round 1</a>
 		<a href="{% url 'round2' %}">Round 2</a>
+        
 		
 	</div>
 
