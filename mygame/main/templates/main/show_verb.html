@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ page_users.object_list.0.part_of_speech|upper }}</title>
+    <style>
+        .item {
+            font-size: 24px;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .hebrew {
+            font-weight: bold;
+            width: 100%;
+            letter-spacing: 5px;
+            color: red;
+            font-size: 40px;
+        }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .pagination button {
+            font-size: 18px;
+            padding: 10px 20px;
+        }
+        .round2-button {
+            font-size: 18px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+        }
+        .round2-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+  
+</head>
+<body>
+    <h2>Read verbs from Binian {{ page_users.object_list.0.part_of_speech|upper }} and try to remember</h2>
+    
+    <div class="item">
+        <p class="hebrew">{{ page_users.object_list.0.hebrew_word }}</p>
+        <p>{{ page_users.object_list.0.english_word }}</p>
+        <p>{{ page_users.object_list.0.root }}</p>
+        <p>{{ page_users.object_list.0.meaning }}</p>
+    </div>
+    <div style="display: flex; justify-content: center; width: 100%; font-size: 20px">
+        <div class="pagination">
+            <form method="GET">
+                <span class="step-links">
+                    {% if page_users.has_previous %}
+                        <button type="submit" name="page" value="{{ page_users.previous_page_number }}">&laquo; previous</button>
+                    {% endif %}
+                    
+                    <span class="current">
+                        Page {{ page_users.number }} of {{ page_users.paginator.num_pages }}
+                    </span>
+                    
+                    {% if page_users.has_next %}
+                        <button type="submit" name="page" value="{{ page_users.next_page_number }}">next &raquo;</button>
+                    {% else %}
+                        <a href="{% url 'round2' %}" class="round2-button">Round 2</a>
+                    {% endif %}
+                </span>
+            </form>
+        </div>
+    </body>
+    </html>

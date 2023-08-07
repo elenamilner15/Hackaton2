@@ -1,0 +1,18 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Round 2
+{% endblock %}
+
+{% block content %}
+<h1>Round 2</h1>
+<ul style="display: flex; width: 100%; font-size: 30px; font-weight: bold; text-transform: uppercase; margin-top: 2em"><ul>
+    
+<li style="margin-bottom: 10px"><a href="{% url 'show_verb2' part_of_speech='paal' %}">paal</a></li>
+<li style="margin-bottom: 10px"><a href="{% url 'show_verb2' part_of_speech='piel' %}">piel</a></li>
+<li style="margin-bottom: 10px"><a href="{% url 'show_verb2' part_of_speech='hitpael' %}">hitpael</a></li>
+<li style="margin-bottom: 10px"><a href="{% url 'show_verb2' part_of_speech='nifal' %}">nifal</a></li>
+<li style="margin-bottom: 10px"><a href="{% url 'show_verb2' part_of_speech='hifil' %}">hifil</a></li>
+</ul>
+
+{% endblock %}

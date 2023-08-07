@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hebrew Verb Quiz</title>
+    <style>        
+        .start-button {
+            font-size: 24px;
+            padding: 10px 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello! Welcome to the Hebrew Verb Quiz</h1>
+    
+    <form method="GET" action="{% url 'round1' %}">
+        <!-- Apply inline CSS to the button -->
+        <button type="submit" style="font-size: 24px; padding: 10px 20px;">Start Game</button>
+    </form>
+</body>
+</html>
+
