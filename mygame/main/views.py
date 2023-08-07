@@ -40,17 +40,16 @@ def show_verb2(request, part_of_speech):
         user_input = request.POST.get("user_input")
         correct_answer = page_users.object_list[0].niqqud_stripped_word
 
-        if user_input == correct_answer:
+        if user_input.lower() == correct_answer:
+            # user = request.user  # Get the current user
+            # user.increase_score()  # Increase the user's score
             feedback = "Correct!"
-            # print(correct_answer)
-        
         else:
             feedback = "Incorrect. Try again."
-            # print(("BAD!") + (correct_answer))
 
     context = {
         'page_users': page_users,
-        'feedback': feedback,  # Pass the feedback to the template
+        'feedback': feedback,
     }
 
     return render(request, 'main/show_verb2.html', context)
