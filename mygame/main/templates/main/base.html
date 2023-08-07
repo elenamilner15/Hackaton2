@@ -1,13 +1,53 @@
 <html>
 <head>
-    <title>{% block title %}Learn the verbs{% endblock %}</title>
+	<style type="text/css">
+		.sidenav {
+			height:100%;
+			width:160px;
+			position: fixed;
+			z-index:1;
+			top:0;
+			left:0;
+			background-color:#111;
+			overflow-x: :hidden;
+			padding-top:20px;
+		}
+ 
+		.sidenav a {
+			padding:6px 8px 6px 16px;
+			text-decoration: none;
+			font-size:30px;
+			color: #CFE2F3;
+			display:block;
+		}
+ 
+		
+
+       
+		.content {
+			margin-left: 220px; /* Adjust as needed */
+			padding: 20px; /* Add padding to create separation from sidebar */
+            color:#2E5374;
+            font-size: 20px;
+		}
+        
+	</style>
+	<title>{% block title %}Hebrew Verb Quiz{% endblock %}</title>
 </head>
 
 <body>
-    <div id="content" name="content">
-	{% block content %}
-	{% endblock %}
-    </div>
+	<div class="sidenav">
+		<a href="/">Home</a>
+        <a href="{% url 'round1' %}">Round 1</a>
+		<a href="{% url 'round2' %}">Round 2</a>
+		
+	</div>
+
+	<!-- Content area -->
+	<div class="content">
+		{% block content %}
+		{% endblock %}
+	</div>
 
 </body>
 </html>

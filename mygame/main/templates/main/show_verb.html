@@ -1,12 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>{{ page_users.object_list.0.part_of_speech|upper }}</title>
+{% extends 'main/base.html' %}
+
+{% block title %}
+{{ page_users.object_list.0.part_of_speech|upper }}
+{% endblock %}
+
+{% block content %}
+    
     <style>
         .item {
             font-size: 24px;
-            width: 100%;
-            text-align: center;
+            width: 100%;            
             margin-bottom: 30px;
         }
         .hebrew {
@@ -18,8 +21,7 @@
         }
         .pagination {
             display: flex;
-            justify-content: center;
-            align-items: center;
+            justify-content: center;            
             margin-top: 20px;
         }
         .pagination button {
@@ -50,7 +52,7 @@
         <p>{{ page_users.object_list.0.root }}</p>
         <p>{{ page_users.object_list.0.meaning }}</p>
     </div>
-    <div style="display: flex; justify-content: center; width: 100%; font-size: 20px">
+    <div style="display: flex; width: 100%; font-size: 20px">
         <div class="pagination">
             <form method="GET">
                 <span class="step-links">
@@ -72,3 +74,5 @@
         </div>
     </body>
     </html>
+
+{% endblock %}

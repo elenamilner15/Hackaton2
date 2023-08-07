@@ -1,7 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Hebrew Verb Quiz</title>
+{% extends 'main/base.html' %}
+
+{% block title %}
+Hebrew Verb Quiz
+{% endblock %}
+
+{% block content %}
+
     <style>        
         .start-button {
             font-size: 24px;
@@ -9,8 +13,7 @@
             font-weight: bold;
         }
     </style>
-</head>
-<body>
+
     <h1>Hello! Welcome to the Hebrew Verb Quiz</h1>
     
     <form method="GET" action="{% url 'round1' %}">
@@ -19,4 +22,5 @@
     </form>
 </body>
 </html>
+{% endblock %}
 
